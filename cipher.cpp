@@ -7,11 +7,12 @@ using namespace std;
 int main(){
 
 	const unsigned SHIFT = 5;
+	const unsigned LETTER_NUM {26};
+
 	string lower = "abcdefghijklmnopqrstuvwxyz";
 	string upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	string message {};
 	unsigned index {0};
-	unsigned LETTER_NUM {26};
 
 	cout << "-------------Caesar Cipher-------------" << endl;
 	cout << "Enter a message to encode: ";
