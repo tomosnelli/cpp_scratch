@@ -29,6 +29,7 @@ const unsigned HEIGHT {10};
 class Player {
 	public:
 		int hp {INIT_HP};
+		int attack {INIT_ATTACK};
 		string name;
 		vector<int> location {0, 0};
 		// constructor
@@ -48,6 +49,7 @@ int temp_location(string direction, Player& player);
 int validate_move(int axis_loc);
 void move(string direction, Player& player);
 int foe_spawn();
+string foe_name();
 int first_hit();
 
 
@@ -76,10 +78,8 @@ int main(){
 				move(direction, player);
 				print_map(player.location);
 				if(foe_spawn()){
-					cout << "A foe jumped out of the ferns!" << endl;
-					cout << "Who goes first?" << endl;
-					cout << first_hit() << endl;
-					// combat() here. attack will be a helper function to combat.
+					cout << "A " << foe_name() << " jumped out of the ferns!" << endl;
+					Player foe();
 				}
 			}
 			else {
@@ -195,6 +195,13 @@ int foe_spawn(){
 }
 
 
+string foe_name(){
+	vector<string> foe_name {"wild bore", "bear", "tiger", "moose", "bat"};
+	srand(time(nullptr));
+	return foe_name.at(rand() % 4 + 0);
+}
+
+
 int first_hit(){
 
 	int player {0};
@@ -228,7 +235,13 @@ void heal(Player& character){
 
 
 void flee(){
+	
+}
 
+
+void attack(Player& first, Player& second){
+	first.hp -= second.attack;
+	return;
 }
 
 
@@ -248,7 +261,3 @@ int combat(Player& character, Player& foe, int goes_first){
 	return 0;
 }
 
-void attack(Player& first, Player& second){
-	first.hp -= second.attack;
-	return;
-}
