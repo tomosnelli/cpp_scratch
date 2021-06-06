@@ -12,7 +12,7 @@ using namespace std;
 // constants? need to learn more about how to place them where.
 // player constants
 const int INIT_HP {50};
-const unsigned INIT_ATTACK  {20};
+const unsigned INIT_ATTACK {20};
 const unsigned HIT_RATE {80};
 
 // foe constants
@@ -30,7 +30,7 @@ class Player {
 	public:
 		int hp {INIT_HP};
 		string name;
-		vector<int> location {1, 1};
+		vector<int> location {0, 0};
 		// constructor
 		Player(string input_name){
 			name = input_name;
@@ -61,6 +61,7 @@ int main(){
 		else {
 			// validate direction....
 			move(direction, player);
+			cout << player.location.at(0) << " and " << player.location.at(1) << endl;
 			print_map(player.location);
 		}
 	}
@@ -119,18 +120,18 @@ bool validate_move(int axis_loc){
 
 void move(string direction, Player& character){
 	// up
-	if(direction == "w"){
+	if(direction == "W"){
 		character.location.at(0) -= 1;
 	}
 	// down
-	else if(direction == "s"){
+	else if(direction == "S"){
 		character.location.at(0) += 1;
 	}
 	// left
-	else if(direction == "a"){
+	else if(direction == "A"){
 		character.location.at(1) -= 1;
 	}
-	else if(direction == "d"){
+	else if(direction == "D"){
 		character.location.at(1) += 1;
 	}
 	cout << character.location.at(0) << ", " << character.location.at(1) << endl;
