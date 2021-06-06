@@ -222,10 +222,32 @@ int first_hit(){
 }
 
 
-int combat(Player& character, Foe& foe, int goes_first){
+void heal(Player& character){
+	if(character.hp > 40){
+		character.hp = INIT_HP;
+	}
+	else {
+		character.hp += 10;
+	}
+}
 
-	if(goes_first){
-		
+
+void flee(){
+
+}
+
+
+int combat(Player& character, Player& foe, int goes_first){
+
+	while((character.hp > 0)&&(foe.hp > 0)){
+		if(goes_first){
+			cout << "You attack first!" << endl;
+			attack(character, foe);
+		}
+		else {
+			cout << "Foe goes first!" << endl;
+			attack(foe, character);
+		}
 	}
 	
 	return 0;
