@@ -222,10 +222,16 @@ int first_hit(){
 }
 
 
-int combat(Player& character, Foe& foe){
+int combat(Player& character, Foe& foe, int goes_first){
+
+	if(goes_first){
+		
+	}
+	
 	return 0;
 }
 
-void attack(Player& character, Foe& foe){
+void attack(Player& first, Player& second){
+	first.hp -= second.attack;
 	return;
 }
