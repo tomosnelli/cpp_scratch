@@ -37,6 +37,13 @@ class Player {
 		}
 };
 
+// foe class
+class Foe {
+	public:
+		int hp {};
+		string name;
+};
+
 
 // function prototype
 string get_name();
@@ -45,6 +52,8 @@ string get_direction();
 int temp_location(string direction, Player& player);
 int validate_move(int axis_loc);
 void move(string direction, Player& player);
+int foe_spawn();
+int first_hit();
 
 
 // main function
@@ -71,6 +80,12 @@ int main(){
 			if(valid){
 				move(direction, player);
 				print_map(player.location);
+				if(foe_spawn()){
+					cout << "A foe jumped out of the ferns!" << endl;
+					cout << "Who goes first?" << endl;
+					cout << first_hit() << endl;
+					// combat() here. attack will be a helper function to combat.
+				}
 			}
 			else {
 				cout << "You hit the wall... Enter valid direction" << endl;
@@ -149,6 +164,7 @@ int validate_move(int axis_loc){
 	}
 }
 
+
 void move(string direction, Player& character){
 	// up
 	if(direction == "W"){
@@ -166,4 +182,50 @@ void move(string direction, Player& character){
 	else if(direction == "D"){
 		character.location.at(1) += 1;
 	}
+}
+
+
+// chance of foe encouter is defined above
+int foe_spawn(){
+	const unsigned spawn_rate {0};
+	const unsigned MAX {100};
+	const unsigned MIN {1};
+	srand(time(nullptr));
+	if((rand() % MAX + MIN) <= 40){
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+
+
+int first_hit(){
+
+	int player {0};
+	int foe {0};
+
+	while(1){
+		srand(time(nullptr));
+		player = rand() % 100 + 1;
+		foe = rand() % 100 + 1;
+		if(player > foe){
+			return 1;
+		}
+		else if(foe > player){
+			return 0;
+		}
+		else {
+			continue;
+		}
+	}
+}
+
+
+int combat(Player& character, Foe& foe){
+	return 0;
+}
+
+void attack(Player& character, Foe& foe){
+	return;
 }
