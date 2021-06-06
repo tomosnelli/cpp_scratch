@@ -29,12 +29,14 @@ const unsigned HEIGHT {10};
 class Player {
 	public:
 		int hp {INIT_HP};
-		int attack {INIT_ATTACK};
+		unsigned attack {INIT_ATTACK};
 		string name;
 		vector<int> location {0, 0};
 		// constructor
-		Player(string input_name){
+		Player(string input_name, int input_hp = INIT_HP, unsigned input_attack = INIT_ATTACK){
 			name = input_name;
+			hp = input_hp;
+			attack = input_attack;
 		}
 };
 
@@ -79,11 +81,12 @@ int main(){
 				print_map(player.location);
 				if(foe_spawn()){
 					cout << "A " << foe_name() << " jumped out of the ferns!" << endl;
-					Player foe();
+					Player foe(foe_name(), FOE_HP, FOE_ATTACK);
+					cout << foe.name << foe.hp << foe.attack << endl;
 				}
 			}
 			else {
-				cout << "You hit the wall... Enter valid direction" << endl;
+				cout << "You hit a wall... Enter valid direction" << endl;
 			}
 		}
 	}
