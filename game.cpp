@@ -37,13 +37,8 @@ class Player {
 		}
 };
 
-// foe class
-class Foe {
-	public:
-		int hp {};
-		string name;
-};
-
+// foe class will reuse the player class. This is needed to be done
+// for some functions for my approch
 
 // function prototype
 string get_name();
