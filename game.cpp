@@ -42,6 +42,8 @@ class Player {
 string get_name();
 void print_map(vector<int> location);
 string get_direction();
+int temp_location(string direction, Player& player);
+int validate_move(int axis_loc);
 void move(string direction, Player& player);
 
 
@@ -49,6 +51,9 @@ void move(string direction, Player& player);
 int main(){
 	// this will be execute the game loop
 	string direction {};
+	bool valid {};
+	// temp location to be tested if valid
+	int tmp {0};
 	string name = get_name();
 	Player player(name);
 
@@ -60,9 +65,16 @@ int main(){
 		}
 		else {
 			// validate direction....
-			move(direction, player);
-			cout << player.location.at(0) << " and " << player.location.at(1) << endl;
-			print_map(player.location);
+			// if(validate_move(direction, player)) {move(direction, player)}
+			tmp = temp_location(direction, player);
+			valid = validate_move(tmp);
+			if(valid){
+				move(direction, player);
+				print_map(player.location);
+			}
+			else {
+				cout << "You hit the wall... Enter valid direction" << endl;
+			}
 		}
 	}
 
@@ -109,12 +121,31 @@ string get_direction(){
 	return direction;
 }
 
-bool validate_move(int axis_loc){
-	if(0 <= axis_loc < 10){
-		return true;
+int temp_location(string direction, Player& character){
+	int destination {0};
+	if(direction == "W"){
+		destination = character.location.at(0) - 1;
+	}
+	else if(direction == "S"){
+		destination = character.location.at(0) + 1;
+	}
+	else if(direction == "A"){
+		destination = character.location.at(1) - 1;
+	}
+	else if(direction == "D"){
+		destination = character.location.at(1) + 1;
+	}
+	return destination;
+}
+
+
+// add parameter "Player& player" to access by reference
+int validate_move(int axis_loc){
+	if((0 <= axis_loc) && (axis_loc < 10)){
+		return 1;
 	}
 	else {
-		return false;
+		return 0;
 	}
 }
 
@@ -131,8 +162,8 @@ void move(string direction, Player& character){
 	else if(direction == "A"){
 		character.location.at(1) -= 1;
 	}
+	// right
 	else if(direction == "D"){
 		character.location.at(1) += 1;
 	}
-	cout << character.location.at(0) << ", " << character.location.at(1) << endl;
 }
