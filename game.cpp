@@ -19,7 +19,7 @@ const unsigned HIT_RATE {80};
 
 // foe constants
 const int FOE_HP {30};
-const unsigned FOE_ATTACK {10};
+const unsigned FOE_ATTACK {5};
 const unsigned FOE_HIT_RATE {75};
 
 // board constraints
@@ -84,6 +84,10 @@ int main(){
 			if(valid){
 				move(direction, player);
 				print_map(player.location);
+				if(player.location.at(0) == 9 && player.location.at(1) == 9){
+					cout << "You reached the goal!" << endl;
+					break;
+				}
 				if(foe_spawn()){
 					cout << "A " << foe_name() << " jumped out of the ferns!" << endl;
 					Player foe(foe_name(), FOE_HP, FOE_ATTACK);
@@ -204,7 +208,7 @@ int foe_spawn(){
 	const unsigned MAX {100};
 	const unsigned MIN {1};
 	srand(time(nullptr));
-	if((rand() % MAX + MIN) <= 40){
+	if((rand() % MAX + MIN) <= 30){
 		return 1;
 	}
 	else {
