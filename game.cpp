@@ -56,7 +56,7 @@ int foe_spawn();
 string foe_name();
 int first_hit();
 int combat(Player& character, Player& foe, int goes_first);
-bool death_check(Player& character, Player& foe);
+int death_check(Player& character, Player& foe);
 
 
 // main function
@@ -282,11 +282,12 @@ int combat(Player& character, Player& foe, int goes_first){
 }
 
 
-bool death_check(Player& character, Player& foe){
+int death_check(Player& character, Player& foe){
 	if(character.hp <= 0){
 		return true;
 	}
 	else if(foe.hp <= 0){
 		return false;
 	}
+	return EXIT_SUCCESS;
 }
