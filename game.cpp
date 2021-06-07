@@ -57,6 +57,7 @@ string foe_name();
 int first_hit();
 int combat(Player& character, Player& foe, int goes_first);
 int death_check(Player& character, Player& foe);
+void heal(Player& character);
 
 
 // main function
@@ -88,8 +89,15 @@ int main(){
 					Player foe(foe_name(), FOE_HP, FOE_ATTACK);
 					int who_hit_first {first_hit()};
 					combat(player, foe, who_hit_first);
+					if(death_check(player, foe)){
+						cout << "You have been defeated..." << endl;
+						break;	
+					}
 					cout << player.hp << " <= player hp" << endl;
 					cout << foe.hp << " <= foe.hp" << endl;
+				}
+				else {
+					heal(player);
 				}
 			}
 			else {
@@ -251,6 +259,9 @@ void flee(){
 
 void attack(Player& first, Player& second){
 	second.hp -= first.attack;
+	if(second.hp < 0){
+		second.hp = 0;
+	}
 	this_thread::sleep_for(chrono::milliseconds(2000));
 	cout << first.name << " delt " << first.attack << " damage!" << endl; 
 	return;
