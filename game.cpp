@@ -6,6 +6,8 @@ Description: A3 assignment remake attempt with cpp
 #include <iostream>
 #include <string>
 #include <vector>
+#include <chrono>
+#include <thread>
 
 using namespace std;
 
@@ -53,6 +55,8 @@ void move(string direction, Player& player);
 int foe_spawn();
 string foe_name();
 int first_hit();
+int combat(Player& character, Player& foe, int goes_first);
+bool death_check(Player& character, Player& foe);
 
 
 // main function
@@ -82,7 +86,10 @@ int main(){
 				if(foe_spawn()){
 					cout << "A " << foe_name() << " jumped out of the ferns!" << endl;
 					Player foe(foe_name(), FOE_HP, FOE_ATTACK);
-					cout << foe.name << foe.hp << foe.attack << endl;
+					int who_hit_first {first_hit()};
+					combat(player, foe, who_hit_first);
+					cout << player.hp << " <= player hp" << endl;
+					cout << foe.hp << " <= foe.hp" << endl;
 				}
 			}
 			else {
@@ -243,24 +250,43 @@ void flee(){
 
 
 void attack(Player& first, Player& second){
-	first.hp -= second.attack;
+	second.hp -= first.attack;
+	this_thread::sleep_for(chrono::milliseconds(2000));
+	cout << first.name << " delt " << first.attack << " damage!" << endl; 
 	return;
 }
 
 
 int combat(Player& character, Player& foe, int goes_first){
+	if(goes_first){
+		cout << "You hit first!" << endl;
+	}
+	else {
+		cout << foe.name << " hits first!" << endl;
+	}
 
 	while((character.hp > 0)&&(foe.hp > 0)){
 		if(goes_first){
-			cout << "You attack first!" << endl;
 			attack(character, foe);
+			if(death_check(character, foe)){ break; }
+			attack(foe, character);
 		}
 		else {
-			cout << "Foe goes first!" << endl;
 			attack(foe, character);
+			if(death_check(character, foe)){ break; }
+			attack(character, foe);
 		}
 	}
 	
 	return 0;
 }
 
+
+bool death_check(Player& character, Player& foe){
+	if(character.hp <= 0){
+		return true;
+	}
+	else if(foe.hp <= 0){
+		return false;
+	}
+}
