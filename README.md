@@ -13,8 +13,8 @@ https://www.udemy.com/share/101WQMBEUceFxVTXo=/
 * able to move character on map
 * ~~unalbe to check map bounds ( you can move to infinity )~~
 * ~~foe encounter not implemented~~
-* battle not implemented
-* HP management not implemented
+* ~~battle not implemented~~
+* ~~HP management not implemented~~
 
 ---
 
