@@ -34,6 +34,7 @@ Ferret::Ferret(const Ferret &source)
 
 // destructor
 Ferret::~Ferret(){
+	cout << "Destructor called. ferret object{" << "name: " << *name << ", Address: " << &name << "} deleted :(" << endl;
 	delete name;
 }
 
@@ -50,6 +51,9 @@ int main(){
 	Ferret sable {albino};
 	display_name(sable);
 	cout << "Address for sable => " << &sable << endl;
+
+	// there will be 3 displays of ferret destructors
+	// because the display function is passed by value it makes a copy
 
 	return 0;
 }
