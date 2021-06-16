@@ -4,6 +4,7 @@
 using namespace std;
 
 // and example of deep copy
+// just delegate to the constructor when making a copy
 
 class Ferret {
 	public:
