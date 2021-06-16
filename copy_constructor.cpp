@@ -39,5 +39,7 @@ int main(){
 
 	Player tom{"TOM"};
 
+	Player new_player_instance {tom};
+
 	return 0;
 }
