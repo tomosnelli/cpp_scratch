@@ -1,30 +1,83 @@
-// define functions
+#include <iostream>
+#include <cstring>
+#include "Ferret.h"
 
-Ferret::Ferret(string arg)
-	:name{arg} {}
 
-bool Ferret::operator==(const Ferret &rhs) const{
-	return (std::strcmp(str, rhs.str) == 0)
+//No-args constructor
+Ferret::Ferret()
+	:name{nullptr} {
+	name = new char[1];
+	*name = '\0';
 }
 
-
-Ferret Ferret::operator-() const{
-	char *buff = new char[std::strlen(name) + 1];
-	std::strcpy(buff, name);
-	for(size_t i=0; i < std::strlen(buff); i++){
-		buff[i] = std::tolower(buff[i]);
+// Overloaded constructor
+Ferret::Ferret(const char *s)
+	:name{nullptr} {
+	if (s == nullptr){
+		name = new char[1];
+		*name = '\0';
+	} else {
+		name = new char[strlen(s) + 1];
+		strcpy(name, s);
 	}
-	Ferret temp{buff};
-	delete [] buff;
-	return temp;
 }
 
+// Copy constructor
+Ferret::Ferret(const Ferret &source)
+	:name{nullptr} {
+	name = new char[strlen(source.name) + 1];
+	strcpy(name, source.name);
+	std::cout << "COPY CONSTRUCTOR USED" << std::endl;
+}
 
-Ferret Ferret::operator+(const Ferret &rhs) const{
-	char *buff = new char[std::strlen(name) + std::strlen(rhs.name) + 1];
-	std::strcpy(buff, name);
-	std::strcat(buff, rhs.name);
-	Ferret temp{buff};
+// Move construcor
+Ferret::Ferret(Ferret &&source)
+	:name{source.name} {
+	source.name = nullptr;
+	std::cout << "MOVE CONSTRUCTOR USED" << std::endl;
+}
+
+// Destructor
+Ferret::~Ferret(){
+	delete [] name;
+}
+
+// Copy assignment
+Ferret &Ferret::operator=(const Ferret &rhs){
+	std::cout << "USING COPY ASSIGNMENT" << std::endl;
+	
+	if(this==&rhs){
+		return *this;
+	}
+	delete [] name;
+	name = new char[strlen(rhs.name) + 1];
+	strcpy(name, rhs.name);
+	return *this;
+}
+
+// Move assignment
+Ferret &Ferret::operator=(Ferret &&rhs){
+	std::cout << "USING MOVE CONSTRUCTOR" << std::endl;
+	if(this == &rhs){
+		return *this;
+	}
+	delete [] name;
+	name = rhs.name;
+	rhs.name = nullptr;
+	return *this;
+}
+
+// overloade insertion operator
+std::ostream &operator<<(std::ostream &os, const Ferret &rhs){
+	os << rhs.name;
+	return os;
+}
+
+// overloaded extraction operator
+std::istream &operator>>(std::istream &in, Ferret &rhs){
+	char *buff = new char[1000];
+	in >> buff;
+	rhs = Ferret{buff};
 	delete [] buff;
-	return temp;
+	return in;
 }
