@@ -32,7 +32,6 @@ class Derived:public Base {
 int main(){
 	// Base b;
 	// Base b{100};
-	Derived d;		// no arg constructor
 	Derived {1};	// won't compile if you do not set your own overloaded constructor
 	
 	return 0;
