@@ -2,6 +2,9 @@
 
 // dynamic binding
 
+// when there is a virtual function you need to provide a virtual destructor
+// warnings when destroying a polymorphic class type Account with out virtual destructor is not defined
+
 class Account {
 	public:
 		// add virtual down here
@@ -11,6 +14,10 @@ class Account {
 		virtual void withdraw(double amount) {
 			std::cout << "Scope => Account::withdraw\n";
 		}
+
+		// you only need to provide a virtual destructor here at the base class
+		// but it is better practice to add virtual destructor for each class
+		virtual ~Account(){std::cout << "Account::destructor\n";}
 };
 
 class Checking: public Account {
@@ -20,6 +27,8 @@ class Checking: public Account {
 		virtual void withdraw(double amount) {
 			std::cout << "Scope => Checking::withdraw\n";
 		}
+
+		~Checking(){std::cout << "Checking::destructor\n";}
 };
 
 class Savings: public Account {
@@ -27,12 +36,16 @@ class Savings: public Account {
 		virtual void withdraw(double amount) {
 			std::cout << "Scopt => Savings::withdraw\n";
 		}
+
+		~Savings(){std::cout << "Savings::destructor\n";}
 };
 
 class Trust: public Account {
 		virtual void withdraw(double amount) {
 			std::cout << "Scope => Trust::withdraw\n";
 		}
+
+		~Trust(){std::cout << "Trust::destructor\n";}
 };
 
 int main(){
