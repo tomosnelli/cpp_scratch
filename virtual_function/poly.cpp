@@ -46,4 +46,10 @@ int main(){
 	ptr2->withdraw(100);
 	ptr3->withdraw(100);
 	ptr4->withdraw(100);
+
+	// free up memory on heap
+	delete ptr1;
+	delete ptr2;
+	delete ptr3;
+	delete ptr4;
 }
