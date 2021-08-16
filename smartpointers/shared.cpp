@@ -12,5 +12,10 @@ int main(){
 	ptr3 = ptr1;
 	std::cout << "USE COUNT=> " << ptr3.use_count() << std::endl;
 
+	ptr3.reset();
+	std::cout << "USE COUNT=> " << ptr3.use_count() << std::endl;
+
+	std::cout << "USE COUNT=> " << ptr1.use_count() << std::endl;
+
 	return 0;
 }
