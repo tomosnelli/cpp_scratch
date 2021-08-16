@@ -17,5 +17,10 @@ int main(){
 
 	std::cout << "USE COUNT=> " << ptr1.use_count() << std::endl;
 
+	// so if they are all shared...
+	*ptr1 = 114514;
+
+	std::cout << *ptr2 << std::endl;
+
 	return 0;
 }
