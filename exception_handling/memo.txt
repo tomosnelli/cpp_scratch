@@ -1,0 +1,15 @@
+Exception handling  
+ *Only for synchronous code not async stuff  
+
+
+Terminology
+ *Exception
+  **an object or primitive type that signals that an error has occurred
+
+Exception handling keyword
+
+throw
+
+try
+
+catch
