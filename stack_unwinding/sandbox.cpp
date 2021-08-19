@@ -7,20 +7,21 @@ void B();
 void C();
 
 void A(){
+	// try adding exception handling here
 	std::cout << "Start A\n";
-	B();
+	try {
+		B();
+	}
+	catch(int &error){
+		std::cout << "Error caught in A()\n";
+	}
 	std::cout << "End A\n";
 }
 
 void B(){
 	// exception handling here
 	std::cout << "Start B\n";
-	try {
-		C();
-	}
-	catch(int &error){
-		std::cout << "Error caught in C()\n";
-	}
+	C();
 	std::cout << "End B\n";
 }
 
