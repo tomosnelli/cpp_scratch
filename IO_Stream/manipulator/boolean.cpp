@@ -25,5 +25,10 @@ int main(){
 	std::cout << (10 == 10) << std::endl;
 	std::cout << (1 > 2)	<< std::endl;
 
+	// set back to default format
+	std::cout << std::resetiosflags(std::ios::boolalpha);
+	std::cout << (10 == 10) << std::endl;
+	std::cout << (1 > 2)	<< std::endl;
+
 	return 0;
 }
