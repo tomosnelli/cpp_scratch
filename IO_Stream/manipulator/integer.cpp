@@ -24,5 +24,10 @@ int main(){
 	std::cout << std::noshowbase;
 	std::cout << std::hex << num << std::endl;
 
+	// display in uppercase
+	std::cout << "\nShow in UPPERCASE" << std::endl;
+	std::cout << std::showbase << std::uppercase;
+	std::cout << std::hex << num << std::endl;
+
 	return 0;
 }
