@@ -16,7 +16,13 @@ int main(){
 	std::cout << std::showbase;
 	std::cout << std::dec << num << std::endl;
 	std::cout << std::hex << num << std::endl;
+
+	// 0 is the prefix for octal in c++
 	std::cout << std::oct << num << std::endl;
+
+	std::cout << "\nSet back with noshowbase" << std::endl;
+	std::cout << std::noshowbase;
+	std::cout << std::hex << num << std::endl;
 
 	return 0;
 }
