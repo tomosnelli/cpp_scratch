@@ -20,5 +20,10 @@ int main(){
 	std::cout << (10 == 10) << std::endl;
 	std::cout << (1 > 2)	<< std::endl;
 
+	// use member method to set output
+	std::cout.setf(std::ios::boolalpha);
+	std::cout << (10 == 10) << std::endl;
+	std::cout << (1 > 2)	<< std::endl;
+
 	return 0;
 }
