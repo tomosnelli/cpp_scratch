@@ -32,10 +32,10 @@ int main(){
 	// show unary operator +/-
 	std::cout << std::showpos;
 
-	int minus {-10};
+	int a {10};
 	std::cout << "\nShow unary +/- operators" << std::endl;
-	std::cout << minus << std::endl;
-	std::cout << minus << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a << std::endl;
 	std::cout << num   << std::endl; 
 	std::cout << std::noshowpos;
 
