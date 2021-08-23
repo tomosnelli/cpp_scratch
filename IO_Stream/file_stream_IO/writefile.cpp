@@ -2,6 +2,11 @@
 #include <fstream>
 #include <string>
 
+// when I try to take input for the file name, it causes errors when taking
+// input for the file content. Seems like path's null character might be
+// interfering with the getline in line 20.
+// maybe use a force flush with the code in taking the path name?
+
 int main(){
 	std::string path {"test.txt"};
 	std::string input {};
