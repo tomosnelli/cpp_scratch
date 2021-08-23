@@ -1,0 +1,7 @@
+open a file for reading
+
+// for reading
+std::fstream in_file {"file/path.cpp", std::ios::in};
+
+// open in reading and bianry reading
+std::fstream in_file{"file/path.cpp", std::ios::in | std::ios::binary};
