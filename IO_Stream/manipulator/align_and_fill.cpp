@@ -19,5 +19,9 @@ int main(){
 			  << std::setw(10) << b
 			  << std::endl;
 
+	// do left justified
+	std::cout << std::setw(10) << std::left << a
+				<< std::setw(10) << std::left << b
+				<< std::endl;
 	return 0;
 }
