@@ -24,9 +24,45 @@ if (in_file.is_open()) {
 	// display error
 }
 
+
 // other checking method
 if (in_file) {
 	// read it
 } else {
 	// some error message
 }
+
+
+// close file
+// must close for output files
+in_file.close();
+
+
+// reading from files with >>
+itn num {};
+double total {};
+std::string name {};
+
+in_file >> num;
+in_file >> total >> name;
+
+
+// reading file with getline
+std::string line {};
+
+std::getline(in_file, line);
+
+
+// reading text file one line at a time
+std::ifstream in_file{"path.cpp"};
+std::string line {};
+
+if (!in_file) {
+	std::cerr << "File open Error" << std::endl;
+	return 1;
+}
+while (!in_file.eof()){			// eof is a method that will return true when reached end of file
+	std::getline(in_file, line);
+	cout << line << std::endl;
+}
+in_file.close();
