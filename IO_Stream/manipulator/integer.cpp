@@ -29,5 +29,15 @@ int main(){
 	std::cout << std::showbase << std::uppercase;
 	std::cout << std::hex << num << std::endl;
 
+	// show unary operator +/-
+	std::cout << std::showpos;
+
+	int minus {-10};
+	std::cout << "\nShow unary +/- operators" << std::endl;
+	std::cout << minus << std::endl;
+	std::cout << minus << std::endl;
+	std::cout << num   << std::endl; 
+	std::cout << std::noshowpos;
+
 	return 0;
 }
