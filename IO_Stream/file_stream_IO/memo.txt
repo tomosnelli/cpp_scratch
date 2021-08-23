@@ -16,3 +16,10 @@ std::cin >> filename;
 in_file.open(filename);
 // or
 in_file.open(filename, std::ios::binary);
+
+// check if file exists or open correctly
+if (in_file.is_open()) {
+	// read and do stuff
+} else {
+	// display error
+}
