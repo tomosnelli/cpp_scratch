@@ -5,3 +5,14 @@ std::fstream in_file {"file/path.cpp", std::ios::in};
 
 // open in reading and bianry reading
 std::fstream in_file{"file/path.cpp", std::ios::in | std::ios::binary};
+
+// ifstream is only for reading
+
+// common use case of ifstream
+std::ifstream in_file;
+std::string filename;
+std::cin >> filename;
+
+in_file.open(filename);
+// or
+in_file.open(filename, std::ios::binary);
