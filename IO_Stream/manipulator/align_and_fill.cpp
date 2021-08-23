@@ -23,5 +23,13 @@ int main(){
 	std::cout << std::setw(10) << std::left << a
 				<< std::setw(10) << std::left << b
 				<< std::endl;
+
+	// more example
+	// for c++11 seems like you have to set setfill before setw and std::left
+	std::cout << std::setfill('#');
+	std::cout << std::setw(10) << std::left << a
+				<< std::setfill('_') << std::setw(10) << std::left << b
+				<< std::endl;
+
 	return 0;
 }
