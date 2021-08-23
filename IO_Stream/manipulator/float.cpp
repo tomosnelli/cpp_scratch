@@ -51,5 +51,10 @@ int main(){
 	std::cout << b << "\n";
 	std::cout << c << "\n";
 
+	// set back to default
+	std::cout.unsetf(std::ios::scientific | std::ios::fixed);
+	std::cout << std::setprecision(6);
+	std::cout << std::resetiosflags(std::ios::showpoint);
+
 	return 0;
 }
