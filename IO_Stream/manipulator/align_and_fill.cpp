@@ -14,7 +14,7 @@ int main(){
 	std::cout << std::setw(10) << a << b << std::endl;
 
 	// do more examples
-	std::cout << std::setfill('_');
+	std::cout << std::setfill('_');	// this setting will last until undone.
 	std::cout << std::setw(10) << a
 			  << std::setw(10) << b
 			  << std::endl;
