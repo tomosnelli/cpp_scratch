@@ -23,3 +23,10 @@ if (in_file.is_open()) {
 } else {
 	// display error
 }
+
+// other checking method
+if (in_file) {
+	// read it
+} else {
+	// some error message
+}
