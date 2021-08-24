@@ -12,6 +12,7 @@ int main(){
 	std::string info {"derp 100 123.4"};
 	std::istringstream iss {info};
 
+	// use a string as an input stream
 	iss >> name >> num >> total;
 	std::cout << std::setw(10) << std::left << name
 				<< std::setw(5) << num
@@ -21,6 +22,26 @@ int main(){
 	std::ostringstream oss {};
 	oss << name << " " << num << " " << total;
 	std::cout << oss.str() << std::endl;
+
+	// Data validation
+	int value {};
+	std::string entry {};
+	bool done = false;
+
+	do {
+		std::cout << "Enter an integer: ";
+		std::cin >> entry;
+		std::istringstream validator {entry};
+		if(validator >> value){
+			done = true;
+		} else {
+			std::cout << "Enter a valid integer" << std::endl;
+		}
+		// discrds the input buffer
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	} while(!done);
+
+	std::cout << "Entered int => " << value << std::endl;
 
 	return 0;
 }
