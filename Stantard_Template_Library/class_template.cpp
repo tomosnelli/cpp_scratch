@@ -32,5 +32,8 @@ int main(){
 	Item<std::string> item2 {"Tom", "BCIT"};
 	std::cout << item2.get_name() << " " << item2.get_value() << std::endl;
 
+	Item<Item<std::string>> item3 {"TOM", {"C++", "BCIT"}};
+	std::cout << item3.get_name() << " " << item3.get_value().get_name() << " " << item3.get_value().get_value() << std::endl;
+
 	return 0;
 }
