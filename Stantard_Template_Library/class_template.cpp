@@ -35,5 +35,23 @@ int main(){
 	Item<Item<std::string>> item3 {"TOM", {"C++", "BCIT"}};
 	std::cout << item3.get_name() << " " << item3.get_value().get_name() << " " << item3.get_value().get_value() << std::endl;
 
+	std::cout << "Play with vectors" << std::endl;
+
+	std::vector<Item<double>> array {};
+	array.push_back(Item<double>("Tom", 1.0));
+	array.push_back(Item<double>("Kaneko", 2.0));
+	array.push_back(Item<double>("Snelling", 3.0));
+
+	for(const auto &item: array){
+		std::cout << item.get_name() << " " << item.get_value() << std::endl;
+	}
+
+	std::cout << "My_Pair class" << std::endl;
+	My_Pair<std::string, int> p1 {"TSK", 100};
+	My_Pair<int, double> p2 {123, 45.6};
+
+	std::cout << p1.first << ", " << p1.second << std::endl;
+	std::cout << p2.first << ", " << p2.second << std::endl;
+
 	return 0;
 }
