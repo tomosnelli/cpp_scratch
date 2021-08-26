@@ -31,10 +31,33 @@ void test1(){
 
 	iter = num.end() - 1;
 	std::cout << *iter << std::endl;
+}
+
+void test2(){
+	std::vector<int> num {1, 2, 3, 4, 5};
+
+	std::vector<int>::iterator iter = num.begin();
+	while(iter != num.end()){
+		std::cout << *iter << std::endl;
+		iter++;
+	}
+
+	// change all vector elements to 0
+	iter = num.begin();
+	while(iter != num.end()){
+		*iter = 0;
+		iter++;
+	}
+
+	display(num);
+}
+
+void test3(){
 
 }
 
 int main(){
-	test1();
+	// test1();
+	test2();
 	return 0;
 }
