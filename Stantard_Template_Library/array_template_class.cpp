@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
 
-template <int N>		// make it a template with out a typename but an actual value
+// use std::array instead of raw arrays whenever possible
+
+
+template <typename T, int N>		// make it a template with out a typename but an actual value
 class Array{
 	int size {N};
-	int values[N];
+	T values[N];
 
-	friend std::ostream &operator<<(std::ostream &os, const Array &ar){
+	friend std::ostream &operator<<(std::ostream &os, const Array<T, N> &ar){
 		os << "[";
 		for(const auto &val: ar.values){
 			os << val << " ";
@@ -17,7 +20,7 @@ class Array{
 
 	public:
 		Array() = default;
-		Array(int init_val){
+		Array(T init_val){
 			for(auto &item: values){
 				item = init_val;
 			}
@@ -32,13 +35,13 @@ class Array{
 		}
 
 		// overload subscript operator for easy use
-		int &operator[](int index) {
+		T &operator[](int index) {
 			return values[index];
 		}
 };
 
 int main(){
-	Array<5> list;
+	Array<int, 5> list;
 	std::cout << "The size of list is => " << list.get_size() << std::endl;
 	std::cout << list << std::endl;
 
@@ -53,7 +56,7 @@ int main(){
 	list[3] = 2;
 	std::cout << list << std::endl;
 
-	Array<100> alist {1};
+	Array<int, 100> alist {1};
 	std::cout << "The size of alist => " << alist.get_size() << std::endl;
 	std::cout << alist << std::endl;
 
