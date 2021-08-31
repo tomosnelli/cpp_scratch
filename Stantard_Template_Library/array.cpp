@@ -5,7 +5,7 @@
 
 void display(const std::array<int, 5> &are){
 	std::cout << "[";
-	for(const auto &i: arr){
+	for(const auto &i: are){
 		std::cout << i << " ";
 	}
 	std::cout << "]" << std::endl;
@@ -33,37 +33,55 @@ void test1(){
 
 	std::cout << "Front of arr2 => " << arr2.front() << std::endl;
 	std::cout << "Back of arr2 => " << arr2.back() << std::endl;
+	std::cout << std::endl;
 }
 
 void test2(){
+	std::cout << "Test2========================" << std::endl;
+	std::array<int, 5> arr1 {1,2,3,4,5};
+	std::array<int, 5> arr2 {10,20,30,40,50};
+
+	display(arr1);
+	display(arr2);
+
+	arr1.fill(0);
+	display(arr1);
+	display(arr2);
 
 }
 
 void test3(){
+	std::cout << "Test3========================" << std::endl;
 
 }
 
 void test4(){
+	std::cout << "Test4========================" << std::endl;
 
 }
 
 void test5(){
+	std::cout << "Test5========================" << std::endl;
 
 }
 
 void test6(){
+	std::cout << "Test5========================" << std::endl;
 
 }
 
 void test7(){
+	std::cout << "Test5========================" << std::endl;
 
 }
 
 void test8(){
+	std::cout << "Test5========================" << std::endl;
 
 }
 
 int main(){
 	test1();
+	test2();
 	return 0;
 }
