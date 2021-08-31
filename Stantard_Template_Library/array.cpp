@@ -118,8 +118,13 @@ void test7(){
 }
 
 void test8(){
-	std::cout << "Test5========================" << std::endl;
+	std::cout << "Test8========================" << std::endl;
+	std::array<int, 10> arr1 {1,2,3,1,2,3,3,3,3,3};
 
+	int count = std::count(arr1.begin(), arr1.end(), 3);
+	std::cout << "numer of found 3's => " << count << std::endl;
+
+	std::cout << std::endl;
 }
 
 int main(){
@@ -129,7 +134,8 @@ int main(){
 	//test4();
 	//test5();
 	//test6();
-	test7();
+	//test7();
+	test8();
 
 	return 0;
 }
