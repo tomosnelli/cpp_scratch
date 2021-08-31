@@ -95,6 +95,15 @@ void all_of_test(){
 	else {
 		std::cout << "Not all elements are smaller than 20" << std::endl;
 	}
+	std::cout << std::endl;
+}
+
+void string_transform_test(){
+	std::string str {"Go to horny jail"};
+	std::cout << "==========String Transform Test======" << std::endl;
+	std::cout << "Before => " << str << std::endl;
+	std::transform(str.begin(), str.end(), str.begin(), ::toupper);
+	std::cout << "After => " << str << std::endl;
 }
 
 int main(){
@@ -104,6 +113,7 @@ int main(){
 	count_if_test();
 	replace_test();
 	all_of_test();
+	string_transform_test();
 
 	return 0;
 }
