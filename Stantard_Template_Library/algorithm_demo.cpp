@@ -102,8 +102,14 @@ void string_transform_test(){
 	std::string str {"Go to horny jail"};
 	std::cout << "==========String Transform Test======" << std::endl;
 	std::cout << "Before => " << str << std::endl;
+
+	// parameters are...
+	// where to start, where to end, and where to put the result, and what function to use
+	// when using the scope resolution operator with no preceding keywords it mean to use "global scope"
+	// because this is a function that has limited scope this makes sense to me
 	std::transform(str.begin(), str.end(), str.begin(), ::toupper);
 	std::cout << "After => " << str << std::endl;
+	std::cout << std::endl;
 }
 
 int main(){
