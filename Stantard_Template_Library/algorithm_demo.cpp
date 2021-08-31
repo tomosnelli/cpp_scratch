@@ -77,6 +77,13 @@ void replace_test(){
 	}
 }
 
+void all_of_test(){
+	std::vector<int> vec{1,2,3,4,5,6,7,8,9,10,11,12,13,14};
+	if(std::all_of(vec.begin(), vec.end(), [](int x) {return x > 10;})){
+		std::cout << 
+	}
+}
+
 int main(){
 	find_test();
 	count_test();
