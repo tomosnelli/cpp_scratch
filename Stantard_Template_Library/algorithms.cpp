@@ -30,6 +30,12 @@ int main(){
 	// with function pointer
 	std::cout << "Function pointer" << std::endl;
 	std::for_each(vec.begin(), vec.end(), square);
+	std::cout << std::endl;
+
+	// lambda expression
+	std::cout << "Lambda expression" << std::endl;
+	std::for_each(vec.begin(), vec.end(),
+					[](int x) { std::cout << x * x << " "; });
 
 	return 0;
 }
