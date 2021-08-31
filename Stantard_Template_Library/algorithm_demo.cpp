@@ -75,19 +75,35 @@ void replace_test(){
 	for(auto j: vec){
 		std::cout << j << " ";
 	}
+	std::cout << std::endl;
 }
 
 void all_of_test(){
+
+	std::cout << "========All Of Test========" << std::endl;
 	std::vector<int> vec{1,2,3,4,5,6,7,8,9,10,11,12,13,14};
 	if(std::all_of(vec.begin(), vec.end(), [](int x) {return x > 10;})){
-		std::cout << 
+		std::cout << "All elements greater than 10" << std::endl;
+	}
+	else {
+		std::cout << "Not all elements are greater than 10" << std::endl;
+	}
+
+	if(std::all_of(vec.begin(), vec.end(), [](int x){ return x < 20; })){
+		std::cout << "All elements are smaller than 20" << std::endl;
+	}
+	else {
+		std::cout << "Not all elements are smaller than 20" << std::endl;
 	}
 }
 
 int main(){
+
 	find_test();
 	count_test();
 	count_if_test();
 	replace_test();
+	all_of_test();
+
 	return 0;
 }
