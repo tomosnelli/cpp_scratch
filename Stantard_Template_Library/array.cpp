@@ -48,10 +48,19 @@ void test2(){
 	display(arr1);
 	display(arr2);
 
+	std::cout << std::endl;
+
 }
 
 void test3(){
 	std::cout << "Test3========================" << std::endl;
+
+	std::array<int, 5> arr1 {1,2,3,4,5};
+
+	int *ptr = arr1.data();
+	std::cout << ptr << " <= pointer" << std::endl;
+	display(arr1);
+	std::cout << std::endl;
 
 }
 
@@ -81,7 +90,8 @@ void test8(){
 }
 
 int main(){
-	test1();
-	test2();
+	//test1();
+	//test2();
+	test3();
 	return 0;
 }
