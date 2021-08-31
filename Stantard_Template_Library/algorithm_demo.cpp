@@ -63,9 +63,24 @@ void count_if_test(){
 	std::cout << num << " odd numbers found" << std::endl;
 }
 
+void replace_test(){
+	std::cout << "========Replace Test=====" << std::endl;
+	std::vector<int> vec {1,2,3,4,5};
+	for(auto i: vec){
+		std::cout << i << " ";
+	}
+	std::cout << std::endl << std::endl;
+
+	std::replace(vec.begin(), vec.end(), 1, 810);
+	for(auto j: vec){
+		std::cout << j << " ";
+	}
+}
+
 int main(){
 	find_test();
 	count_test();
 	count_if_test();
+	replace_test();
 	return 0;
 }
