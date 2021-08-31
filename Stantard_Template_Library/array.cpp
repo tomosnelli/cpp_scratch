@@ -59,19 +59,27 @@ void test3(){
 
 	int *ptr = arr1.data();
 	std::cout << ptr << " <= pointer" << std::endl;
+	*ptr = 1000;
 	display(arr1);
 	std::cout << std::endl;
-
 }
 
 void test4(){
 	std::cout << "Test4========================" << std::endl;
 
+	std::array<int, 5> arr1 {4,1,2,3,5};
+	display(arr1);
+
+	std::sort(arr1.begin(), arr1.end());
+	display(arr1);
+
+	std::cout << std::endl;
 }
 
 void test5(){
 	std::cout << "Test5========================" << std::endl;
 
+	std::cout << std::endl;
 }
 
 void test6(){
@@ -92,6 +100,8 @@ void test8(){
 int main(){
 	//test1();
 	//test2();
-	test3();
+	//test3();
+	test4();
+
 	return 0;
 }
