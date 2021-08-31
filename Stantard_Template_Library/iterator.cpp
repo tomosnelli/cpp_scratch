@@ -87,7 +87,7 @@ void test4(){
 	iter1++;
 	std::cout << *iter1 << std::endl;
 
-	// iterator over map, a python dictonary equivalent
+	// iterator over map, a python data structure "dictonary" equivalent
 	std::map<std::string, std::string> favorites {
 		{"raindrops", "roses"},
 		{"whiskers", "kittens"},
@@ -101,14 +101,23 @@ void test4(){
 }
 
 void test5(){
-	
+	// iterate ove a subset of a container
+	std::vector<int> vec{1,2,3,4,5,6,7,8,9,10};
+	auto start = vec.begin() + 2;
+	auto finish = vec.end() - 3;
+
+	while(start != finish){
+		std::cout << *start << std::endl;
+		start++;
+	}
 }
+
 
 int main(){
 	// test1();
 	// test2();
 	// test3();
-	test4();
-	// test5();
+	// test4();
+	test5();
 	return 0;
 }
