@@ -105,8 +105,16 @@ void test6(){
 }
 
 void test7(){
-	std::cout << "Test5========================" << std::endl;
+	std::cout << "Test7========================" << std::endl;
 
+	std::array<int, 5> arr1 {1,2,3,4,5};
+
+	// need to do #include <numeric>
+	// third parameter, starts adding from 0
+	int sum = std::accumulate(arr1.begin(), arr1.end(), 0);
+	std::cout << "Sum of elements in arr1 is: " << sum << std::endl;
+
+	std::cout << std::endl;
 }
 
 void test8(){
@@ -120,7 +128,8 @@ int main(){
 	//test3();
 	//test4();
 	//test5();
-	test6();
+	//test6();
+	test7();
 
 	return 0;
 }
