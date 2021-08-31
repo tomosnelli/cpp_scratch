@@ -45,7 +45,14 @@ void find_test(){
 	}
 }
 
+void count_test(){
+	std::vector<int> vec {1,2,3,4,5,1,1,1};
+	int num = std::count(vec.begin(), vec.end(), 1);
+	std::cout << num << " occurrences of 1 found" << std::endl;
+}
+
 int main(){
 	find_test();
+	count_test();
 	return 0;
 }
