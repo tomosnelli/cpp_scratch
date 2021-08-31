@@ -127,6 +127,19 @@ void test8(){
 	std::cout << std::endl;
 }
 
+void test9(){
+	std::cout << "Test9========================" << std::endl;
+
+	std::array<int, 10> arr1 {1,2,3,50,60,70,80,200,300,400};
+	// find how many numbers are between 10 and 20 
+	int count = std::count_if(arr1.begin(), arr1.end(),
+								[](int x){ return 10 < x && x < 200; });
+
+	std::cout << "Found numbers { 10 < x < 200 } => " << count << std::endl;
+
+	std::cout << std::endl;
+}
+
 int main(){
 	//test1();
 	//test2();
@@ -135,7 +148,8 @@ int main(){
 	//test5();
 	//test6();
 	//test7();
-	test8();
+	//test8();
+	test9();
 
 	return 0;
 }
