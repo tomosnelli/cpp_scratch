@@ -46,9 +46,28 @@ void test1(){
 
 	std::vector<int> vec {1,2,3,4,5};
 	display(vec);
+
+	vec = {5,6,7,8,9};
+	display2(vec);
+
+	std::vector<int> vec1 (10, 100);	// ten 100s in the vector
+	display(vec1);
+}
+
+void test2(){
+	std::cout << "Test2========================" << std::endl;
+
+	std::vector<int> vec {1,2,3,4,5};
+	display(vec);
+	std::cout << "vec of type vector specs => ";
+	std::cout << "size: " << vec.size() << " ";
+	std::cout << "max size: " << vec.max_size() << " ";
+	std::cout << "capacity: " << vec.capacity() << std::endl;
 }
 
 int main(){
-	test1();
+	//test1();
+	test2();
+
 	return 0;
 }
