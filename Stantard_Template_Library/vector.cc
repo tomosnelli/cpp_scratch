@@ -57,12 +57,30 @@ void test1(){
 void test2(){
 	std::cout << "Test2========================" << std::endl;
 
+	// capacity => a number that once exceeded by vec.size(), the stl will increase the size of vec
 	std::vector<int> vec {1,2,3,4,5};
 	display(vec);
 	std::cout << "vec of type vector specs => ";
-	std::cout << "size: " << vec.size() << " ";
-	std::cout << "max size: " << vec.max_size() << " ";
+	std::cout << "size: " << vec.size() << ", ";
+	std::cout << "max size: " << vec.max_size() << ", ";
 	std::cout << "capacity: " << vec.capacity() << std::endl;
+
+	// because we exceed the capacity size, the vec.size() will go to 10
+	vec.push_back(6);
+	display(vec);
+	std::cout << "vec of type vector specs => ";
+	std::cout << "size: " << vec.size() << ", ";
+	std::cout << "max size: " << vec.max_size() << ", ";
+	std::cout << "capacity: " << vec.capacity() << std::endl;
+
+	// but what if we have limited memory? we can use the .shrink_to_fit() method
+	vec.shrink_to_fit();
+	display(vec);
+	std::cout << "vec of type vector specs => ";
+	std::cout << "size: " << vec.size() << ", ";
+	std::cout << "max size: " << vec.max_size() << ", ";
+	std::cout << "capacity: " << vec.capacity() << std::endl;
+
 }
 
 int main(){
