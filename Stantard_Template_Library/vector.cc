@@ -87,7 +87,7 @@ void test2(){
 }
 
 void test3(){
-	std::cout << "Test4======================" << std::endl;
+	std::cout << "Test3======================" << std::endl;
 
 	std::vector<int> vec {1,2,3,4,5};
 	display(vec);
@@ -101,10 +101,23 @@ void test3(){
 	display(vec);
 }
 
+void test4(){
+	std::cout << "Test4==========================" << std::endl;
+
+	std::vector<Person> comedian {
+		{"Joe Rogan", 54},
+		{"Bill BUrr", 54},
+		{"Joey Diaz", 52}
+	};
+
+	display(comedian);
+}
+
 int main(){
 	//test1();
 	//test2();
-	test3();
+	//test3();
+	test4();
 
 	return 0;
 }
