@@ -199,6 +199,36 @@ void test8(){
 	display(vec);
 }
 
+void test9(){
+	std::cout << "Test9==========================" << std::endl;
+
+	std::vector<int> vec {1,2,3,4,5};
+	std::vector<int> vec1 {10, 20};
+
+	display(vec);
+	display(vec1);
+	std::cout << std::endl;
+
+	// copy algo
+	// copy the entire vec and pass the output to std::back_inserter
+	std::copy(vec.begin(), vec.end(), std::back_inserter(vec1));
+	display(vec);
+	display(vec1);
+	std::cout << std::endl;
+
+	vec = {1,2,3,4,5,6,7,8,9,10};
+	vec1 = {10, 20};
+
+	display(vec);
+	display(vec1);
+	std::cout << std::endl;
+
+	std::copy_if(vec.begin(), vec.end(), std::back_inserter(vec1),
+					[](int x){ return x % 2 == 0; });
+	display(vec);
+	display(vec1);
+}
+
 int main(){
 	//test1();
 	//test2();
@@ -207,7 +237,8 @@ int main(){
 	//test5();
 	//test6();
 	//test7();
-	test8();
+	//test8();
+	test9();
 
 	return 0;
 }
