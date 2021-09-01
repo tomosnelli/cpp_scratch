@@ -240,6 +240,28 @@ void test10(){
 
 }
 
+void test11(){
+	std::cout << "Test11=====================" << std::endl;
+
+	// insert vec1 into vec before the 5, so between 4 and 5 in vec
+	std::vector<int> vec {1,2,3,4,5,6,7,8,9,10};
+	std::vector<int> vec1 {100,200,300,400};
+
+	display(vec);
+	display(vec1);
+
+	auto iter = std::find(vec.begin(), vec.end(), 5);
+	if(iter != vec.end()){
+		std::cout << "inserting..." << std::endl;
+		vec.insert(iter, vec1.begin(), vec1.end());
+	}
+	else {
+		std::cout << "No 5's found" << std::endl;
+	}
+
+	display(vec);
+}
+
 int main(){
 	//test1();
 	//test2();
@@ -250,7 +272,8 @@ int main(){
 	//test7();
 	//test8();
 	//test9();
-	test10();
+	//test10();
+	test11();
 
 	return 0;
 }
