@@ -172,7 +172,22 @@ void test6(){
 }
 
 void test7(){
+	std::cout << "Test7====================" << std::endl;
 
+	std::vector<int> vec {1,2,3,4,5};
+	std::vector<int> vec1 {10,20,30,40,50};
+
+	display(vec);
+	display(vec1);
+
+	std::cout << std::endl;
+
+	vec1.swap(vec);
+	std::cout << "Display vec => ";
+	display(vec);
+
+	std::cout << "Display vec1 => ";
+	display(vec1);
 }
 
 int main(){
@@ -181,7 +196,7 @@ int main(){
 	//test3();
 	//test4();
 	//test5();
-	test6();
+	//test6();
 	test7();
 
 	return 0;
