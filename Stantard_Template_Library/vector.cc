@@ -254,6 +254,7 @@ void test11(){
 	if(iter != vec.end()){
 		std::cout << "inserting..." << std::endl;
 		vec.insert(iter, vec1.begin(), vec1.end());
+	//			  start  -----insert this--------
 	}
 	else {
 		std::cout << "No 5's found" << std::endl;
