@@ -124,11 +124,65 @@ void test4(){
 	display(comedian);
 }
 
+void test5(){
+	std::cout << "Test5=======================" << std::endl;
+
+	std::vector<Person> comedian {
+		{"Joe Rogan", 54},
+		{"Bill Burr", 54},
+		{"Joey Diaz", 52}
+	};
+
+	display(comedian);
+
+	std::cout << "\nFront => " << comedian.front() << std::endl;
+	std::cout << "Back => " << comedian.back() << std::endl;
+
+	comedian.pop_back();
+	display(comedian);
+}
+
+void test6(){
+	std::cout << "Test6====================" << std::endl;
+
+	std::vector<int> vec {1,2,3,4,5};
+	display(vec);
+
+	vec.clear();	// remove all elements
+	display(vec);
+
+	vec = {1,2,3,4,5,6,7,8,9,10};
+	display(vec);
+	vec.erase(vec.begin(), vec.begin()+2);
+	display(vec);
+
+	vec = {1,2,3,4,5,6,7,8,9,10};
+	// remove all even numbers
+	// this example is looping over a vector and removing items. not sure if that is good practice someone inform me on this
+	auto iter = vec.begin();
+	while(iter != vec.end()){
+		if(*iter % 2 == 0){
+			vec.erase(iter);
+		}
+		else {
+			iter++;
+		}
+	}
+	display(vec);
+}
+
+void test7(){
+
+}
+
 int main(){
 	//test1();
 	//test2();
 	//test3();
-	test4();
+	//test4();
+	//test5();
+	test6();
+	test7();
 
 	return 0;
 }
