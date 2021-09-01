@@ -229,6 +229,17 @@ void test9(){
 	display(vec1);
 }
 
+void test10(){
+	std::cout << "Test10===================" << std::endl;
+	std::vector<int> vec {1,2,3,4,5};
+	std::vector<int> vec1 {10,20,30,40,50};
+	std::vector<int> vec2;
+
+	std::transform(vec.begin(), vec.end(), vec1.begin(), std::back_inserter(vec2), [](int x, int y) { return x * y; });
+	display(vec2);
+
+}
+
 int main(){
 	//test1();
 	//test2();
@@ -238,7 +249,8 @@ int main(){
 	//test6();
 	//test7();
 	//test8();
-	test9();
+	//test9();
+	test10();
 
 	return 0;
 }
