@@ -190,6 +190,15 @@ void test7(){
 	display(vec1);
 }
 
+void test8(){
+	std::cout << "Test8=========================" << std::endl;
+
+	std::vector<int> vec {1,21,3,40,12};
+	display(vec);
+	std::sort(vec.begin(), vec.end());
+	display(vec);
+}
+
 int main(){
 	//test1();
 	//test2();
@@ -197,7 +206,8 @@ int main(){
 	//test4();
 	//test5();
 	//test6();
-	test7();
+	//test7();
+	test8();
 
 	return 0;
 }
