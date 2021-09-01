@@ -81,11 +81,30 @@ void test2(){
 	std::cout << "max size: " << vec.max_size() << ", ";
 	std::cout << "capacity: " << vec.capacity() << std::endl;
 
+	// minor method. this will reserve 100 spaces in memory
+	vec.reserve(100);
+
+}
+
+void test3(){
+	std::cout << "Test4======================" << std::endl;
+
+	std::vector<int> vec {1,2,3,4,5};
+	display(vec);
+
+	// no bounds checking for the subscript
+	vec[0] = 100;
+
+	// dot at method does bounds checking 
+	vec.at(1) = 200;
+
+	display(vec);
 }
 
 int main(){
 	//test1();
-	test2();
+	//test2();
+	test3();
 
 	return 0;
 }
