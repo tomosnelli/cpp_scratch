@@ -106,9 +106,20 @@ void test4(){
 
 	std::vector<Person> comedian {
 		{"Joe Rogan", 54},
-		{"Bill BUrr", 54},
+		{"Bill Burr", 54},
 		{"Joey Diaz", 52}
 	};
+
+	display(comedian);
+
+	Person p1 { "Tim Dillon", 40 };
+	comedian.push_back(p1);
+
+	comedian.push_back(Person{"Dough Stanhope", 55});
+	display(comedian);
+
+	// no need for constructors, just pass the parameters
+	comedian.emplace_back("Ralphie May", 40);
 
 	display(comedian);
 }
